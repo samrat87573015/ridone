@@ -1,0 +1,383 @@
+/* .container {
+  font-family: "Arial", sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.header {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #f8f9fa;
+}
+
+.headerTitle {
+  color: #28a745;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.headerSubtitle {
+  color: #28a745;
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.headerBadge {
+  border: 1px solid #28a745;
+  border-radius: 50px;
+  padding: 0.25rem 1rem;
+  display: inline-block;
+  font-size: 0.875rem;
+}
+
+.videoSection {
+  margin-bottom: 2rem;
+}
+
+.videoWrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.priceSection {
+  text-align: center;
+  padding: 2rem 1rem;
+  background-color: #f8f9fa;
+}
+
+.priceWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.checkIcon {
+  color: #28a745;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.price {
+  font-size: 1.5rem;
+}
+
+.freeDelivery {
+  color: #28a745;
+  margin-top: 0.5rem;
+}
+
+.orderFormSection {
+  padding: 2rem 1rem;
+}
+
+.orderFormWrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid #ffc107;
+  border-radius: 0.25rem;
+  padding: 2rem;
+}
+
+.formTitle {
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.formGroup {
+  margin-bottom: 1.5rem;
+}
+
+.formLabel {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.formInput,
+.formTextarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+
+.shippingInfo,
+.orderSummary {
+  margin-bottom: 1.5rem;
+}
+
+.shippingTitle,
+.orderSummaryTitle {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.shippingCard,
+.orderSummaryCard {
+  background-color: #f8f9fa;
+  border-radius: 0.25rem;
+  padding: 1rem;
+}
+
+.shippingItem,
+.orderItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.orderItemInfo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.orderItemImage {
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+.orderItemImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0.25rem;
+}
+
+.submitButton {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.75rem;
+  width: 100%;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.featuresSection,
+.videoGallerySection,
+.whyChooseUsSection,
+.faqSection,
+.contactSection {
+  padding: 3rem 1rem;
+}
+
+.featuresTitle,
+.videoGalleryTitle,
+.whyChooseUsTitle,
+.faqTitle,
+.contactTitle {
+  text-align: center;
+  font-weight: 600;
+
+  margin-bottom: 2rem;
+}
+
+.featuresContent {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.featuresButtonWrapper,
+.videoGalleryButtonWrapper,
+.faqButtonWrapper {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.orderButton {
+  background-color: #28a745;
+  color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.videoGalleryGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.videoThumbnailWrapper {
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 0.25rem;
+}
+
+.whyChooseUsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.whyChooseUsCard {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.whyChooseUsIconWrapper {
+  background-color: rgba(40, 167, 69, 0.1);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.whyChooseUsIcon {
+  color: #28a745;
+  width: 30px;
+  height: 30px;
+}
+
+.whyChooseUsCardTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.whyChooseUsCardText {
+  color: #6c757d;
+}
+
+.faqAccordion {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faqItem {
+  margin-bottom: 1rem;
+}
+
+.faqQuestion {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+  background-color: #f8f9fa;
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.faqIcon {
+  margin-right: 0.5rem;
+  width: 20px;
+  height: 20px;
+}
+
+.faqAnswer {
+  padding: 1rem;
+  background-color: #fff;
+  border: 1px solid #f8f9fa;
+  border-top: none;
+  border-radius: 0 0 0.25rem 0.25rem;
+}
+
+.contactGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.contactCard {
+  text-align: center;
+  padding: 1.5rem;
+  background-color: #fff;
+  border-radius: 0.25rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.contactIconWrapper {
+  background-color: rgba(40, 167, 69, 0.1);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+
+.contactIcon {
+  color: #28a745;
+  width: 30px;
+  height: 30px;
+}
+
+.contactCardTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.contactLink {
+  color: #28a745;
+  text-decoration: none;
+}
+
+.contactText {
+  color: #6c757d;
+}
+
+.footer {
+  background-color: #343a40;
+  color: #fff;
+  padding: 1rem;
+}
+
+.footerContent {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footerText {
+  font-size: 0.875rem;
+}
+
+.footerIcon {
+  width: 24px;
+  height: 24px;
+}
+
+@media (max-width: 768px) {
+  .headerTitle {
+    font-size: 1.25rem;
+  }
+
+  .headerSubtitle {
+    font-size: 1rem;
+  }
+
+  .price {
+    font-size: 1.25rem;
+  }
+
+  .orderFormWrapper {
+    padding: 1.5rem;
+  }
+
+  .whyChooseUsGrid,
+  .contactGrid {
+    grid-template-columns: 1fr;
+  }
+}
+ */

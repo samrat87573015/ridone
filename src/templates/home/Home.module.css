@@ -1,0 +1,170 @@
+
+
+.container {
+    background-color: #cae9d7;
+
+  }
+  
+  .title {
+    text-align: center;
+    font-size: 2em;
+    color: #2e7d32;
+    margin-bottom: 20px;
+  }
+  
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 20px;
+    padding: 50px;
+  }
+  
+  .card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .newBadge {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #ff6f00;
+    color: white;
+    padding: 5px 10px;
+    font-size: 0.75em;
+    border-radius: 5px;
+  }
+  .cardAndview{
+    display: flex;
+    background: #e9e9e9;
+    grid-column-gap: 3px;
+  }
+  .productImage {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    max-height: 400px;
+  }
+  
+  .productInfo {
+text-align: start;
+  }
+  .productandname{
+    background:rgb(250, 250, 250);
+    padding: 15px;
+  }
+  .productName {
+    font-size: .9em;
+    color: #333;
+    margin: 0;
+    margin-top: 10px;
+  }
+  
+  .productPrice {
+    font-size: 1.2em;
+    color: #505050;
+    margin: 0;
+    font-weight: bold;
+  }
+  
+  .viewButton {
+    display: inline-block;
+    padding: 8px 16px;
+
+    color: #000000;
+    text-decoration: none;
+
+    transition: background-color 0.3s ease;
+    width: 50%;
+    text-align: center;
+  }
+  
+  .viewButton:hover {
+    background-color: #000000;
+    color: white;
+  }
+  
+  .loading, .error {
+    text-align: center;
+    font-size: 1.5em;
+    color: #666;
+    margin-top: 50px;
+  }
+  
+  /* Slider styles */
+.slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    height: 400px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .arrowButton {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 2rem;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;       
+    justify-content: center;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+  }
+  
+  .arrowButton:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  
+  .arrowButton:first-of-type {
+    left: 7%;
+  }
+  
+  .arrowButton:last-of-type {
+    right: 7%;
+  }
+  
+  .slide {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+  }
+  
+  .sliderImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .slideCaption {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    font-size: 1.2em;
+  }
+  
