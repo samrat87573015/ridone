@@ -52,7 +52,7 @@ const ProductCard = ({ product, handleQuickView }) => {
 
             {/* Add to Cart Button */}
             <button
-              className="btn add_to_cart_btn py-2 rounded"
+              className="btn add_to_cart_btn rounded"
               onClick={() => handleQuickView(product)}
             >
               Add to Cart

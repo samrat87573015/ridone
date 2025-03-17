@@ -18,13 +18,14 @@ export default function Footer() {
 
   return (
     <>
+
       <footer className="footer_area text-white py-5">
         <div className="container">
           <div className="row mb-4">
             {/* Logo Section - Left */}
             <div className="col-md-3 mb-4 mb-md-0">
               <div className="mb-4">
-                <img src={media[0]?.logo || 'default-logo.png'} alt="logo" className="img-fluid" style={{maxWidth: '150px'}} />
+                <img src={media[0]?.footer_image || media[0]?.logo } alt="logo" className="img-fluid" style={{maxWidth: '150px'}} />
               </div>
               <div className="mb-2">
                 <img src={'assets/images/barvida-logo.png'} alt="BARVIDA logo" className="img-fluid" style={{maxWidth: '120px'}} />

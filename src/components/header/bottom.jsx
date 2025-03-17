@@ -1,106 +1,132 @@
-"use client"
+"use client";
 
-import { useEffect, useState, useRef } from "react"
-import { Link, useLocation } from "react-router-dom"
-import { useLoading } from "../LoadingContext"
-import { useToast } from "../ToastContext"
-import { fetchHomeData } from "../../api/homeservice"
-import { useDispatch, useSelector } from "react-redux"
-import { House, Car, BadgeCheck, NotebookPen, ChevronUp, ChevronDown, AlignJustify } from "lucide-react"
-import { setActiveCart, selectCartTotal, selectCartItemCount } from "../../api/store/slices/cartSlice"
-import MobileSidebar from "./MobileSidebar"
+import { useEffect, useState, useRef } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useLoading } from "../LoadingContext";
+import { useToast } from "../ToastContext";
+import { fetchHomeData } from "../../api/homeservice";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  House,
+  Car,
+  BadgeCheck,
+  NotebookPen,
+  ChevronUp,
+  ChevronDown,
+  AlignJustify,
+} from "lucide-react";
+import {
+  setActiveCart,
+  selectCartTotal,
+  selectCartItemCount,
+} from "../../api/store/slices/cartSlice";
+import MobileSidebar from "./MobileSidebar";
 
 export default function Bottom() {
-  const { setLoading } = useLoading()
-  const { showToast } = useToast()
-  const dispatch = useDispatch()
-  const location = useLocation()
+  const { setLoading } = useLoading();
+  const { showToast } = useToast();
+  const dispatch = useDispatch();
+  const location = useLocation();
 
-  const categories = useSelector((state) => state.home.categories.slice(0, 12))
-  const loading = useSelector((state) => state.home.loading)
-  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated)
-  const error = useSelector((state) => state.home.error)
-  const { user } = useSelector((state) => state.user)
-  const activecart = useSelector((state) => state.cart.activecart)
-  const cartTotal = useSelector(selectCartTotal)
-  const cartItemCount = useSelector(selectCartItemCount)
-  const [isOpen, setIsOpen] = useState(false)
-  const [showBlogMenu, setShowBlogMenu] = useState(false)
-  const blogMenuRef = useRef(null)
+  const categories = useSelector((state) => state.home.categories.slice(0, 12));
+  const loading = useSelector((state) => state.home.loading);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const error = useSelector((state) => state.home.error);
+  const { user } = useSelector((state) => state.user);
+  const activecart = useSelector((state) => state.cart.activecart);
+  const cartTotal = useSelector(selectCartTotal);
+  const cartItemCount = useSelector(selectCartItemCount);
+  const [isOpen, setIsOpen] = useState(false);
+  const [showBlogMenu, setShowBlogMenu] = useState(false);
+  const blogMenuRef = useRef(null);
 
-  const blogs = useSelector((state) => state.home?.blogs || [])
+  const blogs = useSelector((state) => state.home?.blogs || []);
 
   useEffect(() => {
     if (categories.length === 0) {
-      dispatch(fetchHomeData())
+      dispatch(fetchHomeData());
     }
-  }, [dispatch, categories.length])
+  }, [dispatch, categories.length]);
 
   useEffect(() => {
     if (error) {
-      showToast(error, "error")
+      showToast(error, "error");
     }
-  }, [error, showToast])
+  }, [error, showToast]);
 
   // Close blog mega menu when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (blogMenuRef.current && !blogMenuRef.current.contains(event.target)) {
-        setShowBlogMenu(false)
+        setShowBlogMenu(false);
       }
-    }
+    };
 
-    document.addEventListener("mousedown", handleClickOutside)
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const removeCartSection = () => {
-    dispatch(setActiveCart(false))
-  }
+    dispatch(setActiveCart(false));
+  };
 
   const addCartSection = () => {
-    dispatch(setActiveCart(true))
-  }
+    dispatch(setActiveCart(true));
+  };
 
   const addsidemenu = () => {
-    document.querySelector(".sidemenu").classList.toggle("block")
-  }
+    document.querySelector(".sidemenu").classList.toggle("block");
+  };
 
-  const [showSidebar, setShowSidebar] = useState(false)
+  const [showSidebar, setShowSidebar] = useState(false);
 
   const onOpen = () => {
-    setShowSidebar(true)
-  }
+    setShowSidebar(true);
+  };
 
   const toggleDropdown = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   // Group blogs by category
   const blogCategories = [
-    ...new Set(blogs.map((blog) => (blog.blog_category ? blog.blog_category.name : null))),
-  ].filter(Boolean)
+    ...new Set(
+      blogs.map((blog) => (blog.blog_category ? blog.blog_category.name : null))
+    ),
+  ].filter(Boolean);
 
   const blogsByCategory = blogCategories.map((categoryName) => {
-    const categoryBlogs = blogs.filter((blog) => blog.blog_category && blog.blog_category.name === categoryName)
+    const categoryBlogs = blogs.filter(
+      (blog) => blog.blog_category && blog.blog_category.name === categoryName
+    );
     return {
       category: categoryBlogs[0]?.blog_category,
       blogs: categoryBlogs,
-    }
-  })
+    };
+  });
 
   return (
     <>
       <hr />
-      <nav className="navbar navbar-expand-lg py-0 pb-lg-4" aria-label="Offcanvas navbar large">
+      <nav
+        className="navbar navbar-expand-lg py-0 pb-lg-4"
+        aria-label="Offcanvas navbar large"
+      >
         <div className="container">
-          <div className="offcanvas offcanvas-start" id="navbar-default" aria-labelledby="navbar-defaultLabel">
+          <div
+            className="offcanvas offcanvas-start"
+            id="navbar-default"
+            aria-labelledby="navbar-defaultLabel"
+          >
             <div className="offcanvas-body justify-space-between">
               <div className="col-lg-3 col-xl-3">
                 <div className="dropdown me-3">
-                  <div className="header_category_area position-relative" style={{ maxWidth: "300px" }}>
+                  <div
+                    className="header_category_area position-relative"
+                    style={{ maxWidth: "300px" }}
+                  >
                     <div
                       className="d-flex justify-content-between align-items-center p-3 rounded-top-4"
                       onClick={toggleDropdown}
@@ -120,7 +146,11 @@ export default function Bottom() {
                         </span>
                         <span className="fw-medium">All Categories</span>
                       </div>
-                      {isOpen ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                      {isOpen ? (
+                        <ChevronUp size={20} />
+                      ) : (
+                        <ChevronDown size={20} />
+                      )}
                     </div>
 
                     {isOpen && (
@@ -143,9 +173,15 @@ export default function Bottom() {
                               style={{ backgroundColor: "transparent" }}
                             >
                               <div className="heder_category_icon me-2">
-                                <img src={category.image || "/placeholder.svg"} alt={category.name} />
+                                <img
+                                  src={category.image || "/placeholder.svg"}
+                                  alt={category.name}
+                                />
                               </div>
-                              <Link className="dropdown-item" to={"/filter/?category=" + category?.slug}>
+                              <Link
+                                className="dropdown-item"
+                                to={"/filter/?category=" + category?.slug}
+                              >
                                 {" "}
                                 {category?.name}{" "}
                               </Link>
@@ -163,7 +199,9 @@ export default function Bottom() {
               <ul className="col-md-9 gap-14 menu_area navbar-nav align-items-center">
                 <li className="nav-item">
                   <Link
-                    className={`nav-link d-flex align-items-center gap-1 ${location.pathname === "/" ? "active" : ""}`}
+                    className={`nav-link d-flex align-items-center gap-1 ${
+                      location.pathname === "/" ? "active" : ""
+                    }`}
                     to="/"
                   >
                     <House size={20} strokeWidth={1.5} />
@@ -195,56 +233,66 @@ export default function Bottom() {
                   </Link>
                 </li>
 
-                <li className="nav-item position-relative" ref={blogMenuRef}>
-                  <button
+                <li
+                  className="nav-item position-relative"
+                  ref={blogMenuRef}
+                  onMouseEnter={() => setShowBlogMenu(true)}
+                  onMouseLeave={() => setShowBlogMenu(false)}
+                >
+                  <Link to="/blog"
                     className={`nav-link d-flex align-items-center gap-1 border-0 bg-transparent ${
                       location.pathname === "/blog" ? "active" : ""
                     }`}
-                    onClick={() => setShowBlogMenu(!showBlogMenu)}
                   >
                     <NotebookPen size={20} strokeWidth={1.5} />
                     <span>Blog</span>
                     <ChevronDown
                       size={16}
                       strokeWidth={1.5}
-                      className={`transition ${showBlogMenu ? "rotate-180" : ""}`}
+                      className={`transition ${
+                        showBlogMenu ? "rotate-180" : ""
+                      }`}
                     />
-                  </button>
+                  </Link>
 
-                  {showBlogMenu && blogs.length > 0 && (
-                    <div
-                      className="position-absolute end-0 mt-2 bg-light shadow-lg rounded p-4"
-                      style={{
-                        width: "600px",
-                        top: "100%",
-                        zIndex: 1000,
-                        backgroundColor: "#f8f9fa",
-                      }}
-                    >
-                      <div className="row">
-                        {blogsByCategory.map(({ category, blogs }) => (
-                          <div key={category.id} className="col-md-4 mb-3">
-                            <h3 className="fw-bold">{category.name}</h3>
-                            <ul className="list-unstyled mt-2">
-                              {blogs.map((blog) => (
-                                <li key={blog.id} className="mb-2">
-                                  <Link
-                                    to={`/blog/${blog.slug}`}
-                                    className="text-decoration-none text-dark"
-                                    style={{ transition: "color 0.3s" }}
-                                    onMouseOver={(e) => (e.currentTarget.style.color = "#0d6efd")}
-                                    onMouseOut={(e) => (e.currentTarget.style.color = "#212529")}
-                                  >
-                                    {blog.title}
-                                  </Link>
-                                </li>
-                              ))}
-                            </ul>
-                          </div>
-                        ))}
-                      </div>
+                  <div
+                    className={`position-absolute end-0 mt-2 bg-light shadow-lg rounded p-4 blog-submenu ${
+                      showBlogMenu ? "show" : ""
+                    }`}
+                    style={{
+                      width: "600px",
+                      top: "100%",
+                      zIndex: 1000,
+                      backgroundColor: "#f8f9fa",
+                    }}
+                  >
+                    <div className="row">
+                      {blogsByCategory.map(({ category, blogs }) => (
+                        <div key={category.id} className="col-md-4 mb-3">
+                          <h3 className="fw-bold">{category.name}</h3>
+                          <ul className="list-unstyled mt-2">
+                            {blogs.map((blog) => (
+                              <li key={blog.id} className="mb-2">
+                                <Link
+                                  to={`/blog/${blog.slug}`}
+                                  className="text-decoration-none text-dark"
+                                  style={{ transition: "color 0.3s" }}
+                                  onMouseOver={(e) =>
+                                    (e.currentTarget.style.color = "#0d6efd")
+                                  }
+                                  onMouseOut={(e) =>
+                                    (e.currentTarget.style.color = "#212529")
+                                  }
+                                >
+                                  {blog.title}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
                     </div>
-                  )}
+                  </div>
                 </li>
               </ul>
 
@@ -278,8 +326,11 @@ export default function Bottom() {
         </div>
       </nav>
 
-      <MobileSidebar show={showSidebar} onClose={() => setShowSidebar(false)} categories={categories} />
+      <MobileSidebar
+        show={showSidebar}
+        onClose={() => setShowSidebar(false)}
+        categories={categories}
+      />
     </>
-  )
+  );
 }
-

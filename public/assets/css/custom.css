@@ -526,7 +526,6 @@ img.ratio {
 
 
 .single-product-viewpage .product.productModal {
-  height: 70vh;
   overflow: hidden;
 }
 
@@ -1074,6 +1073,20 @@ div#navbar-default {
 background: #eeeeee;
 } */
 
+.blog-submenu {
+  opacity: 0;
+  transform: translateY(-10px);
+  visibility: hidden;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out, visibility 0.3s;
+}
+
+.blog-submenu.show {
+  opacity: 1;
+  transform: translateY(0);
+  visibility: visible;
+}
+
+
 
 nav.navbar {
 background: #fff;
@@ -1247,6 +1260,7 @@ a {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    margin-bottom: 12px;
 }
 
 .productbaseofctg .col.single-item .m-auto {
@@ -1311,7 +1325,7 @@ a {
 
 
 .productbaseofctg .col.single-item .position-relative {
-    background: #f3f4f6;
+    /* background: #f3f4f6; */
     padding-right: 10px;
 }
 
@@ -1743,8 +1757,9 @@ nav.mobile-menu li a {
   width: 85%;
 }
 
-.car-lead-form{
+.car-lead-form {
   padding: 100px 150px;
+  font-family: MybanglaFont;
 }
 .service-icon {
   width: 100%;
@@ -2267,6 +2282,9 @@ img.side-banner.w-100.h-100.object-fit-cover.rounded {
 .singletestomonial {
   display: grid !important;
 }
+.ctg-img {
+  display: none;
+}
 
 .singletestomonial .image {
   width: -webkit-fill-available !important;
@@ -2436,5 +2454,16 @@ button.btn.btn-primary.md-mx-2.md-mt-0.add-to-cart-btn {
   .col-lg-5.row.mobile-pr-0 {
     flex-direction: column-reverse;
 }
+.product_image {
+  height: 190px;
+}
+.product_title {
+  font-size: 14px;
+}
+.add_to_cart_btn {
+  padding: 5px 20px;
+  font-size: 13px;
+}
+
   
 }

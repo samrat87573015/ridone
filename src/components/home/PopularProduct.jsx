@@ -278,6 +278,7 @@ export default function PopularProduct() {
                 disableOnInteraction: false,
               }}
               breakpoints={{
+                0: { slidesPerView: 2 },
                 576: { slidesPerView: 2 },
                 768: { slidesPerView: 3 },
                 992: { slidesPerView: 4 },

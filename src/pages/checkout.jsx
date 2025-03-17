@@ -681,7 +681,7 @@ export default function Checkout() {
                                 fieldErrors.paymentType ? "is-invalid" : ""
                               }`}
                             >
-                              <div className="payment-options d-flex align-items-center flex-wrap mb-4 gap-3">
+                              <div className="payment-options d-flex align-items-center justify-content-center flex-wrap mb-4 gap-3">
                                 {/* Cash on Delivery Option */}
                                 <div className="form-check cs-payment-option d-flex align-items-center">
                                   <input
@@ -735,7 +735,7 @@ export default function Checkout() {
                                 </div>
 
                                 {/* SSl Payment Option */}
-                                <div className="form-check cs-payment-option d-flex align-items-center">
+                                {/* <div className="form-check cs-payment-option d-flex align-items-center">
                                   <input
                                     className="form-check-input"
                                     type="radio"
@@ -756,7 +756,7 @@ export default function Checkout() {
                                     />
                                     <span className="m-auto">SSL</span>
                                   </label>
-                                </div>
+                                </div> */}
                               </div>
                             </div>
 
@@ -800,7 +800,7 @@ export default function Checkout() {
                                 className="list-group-item px-4 py-3"
                               >
                                 <div className="row align-items-center">
-                                  <div className="col-7 col-md-7 col-lg-7">
+                                  <div className=" col-sm-7 col-lg-7 mb-2">
                                     <div className="d-flex">
                                       <img
                                         src={
@@ -853,7 +853,7 @@ export default function Checkout() {
                                       </div>
                                     </div>
                                   </div>
-                                  <div className="col-5 text-lg-end text-start text-md-end col-md-5">
+                                  <div className=" text-lg-end text-start text-md-end col-sm-5">
                                     Base Price - ৳
                                     {itemDetails.itemTotal.toFixed(2)}
                                     <br />

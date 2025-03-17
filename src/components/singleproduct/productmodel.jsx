@@ -11,7 +11,7 @@ import { useLoading } from "../LoadingContext"
 import { useToast } from "../ToastContext"
 // import { dataLayer } from "../EcommerceDataLayerService"
 
-export default function Productmodel({ selectedProduct, siteinfos }) {
+export default function Productmodel({ selectedProduct }) {
   const zoomStyles = `
   .product.productModal {
     position: relative;
@@ -34,7 +34,6 @@ export default function Productmodel({ selectedProduct, siteinfos }) {
   }
 `
 
-  useEffect(() => {}, [siteinfos])
 
   const { setLoading } = useLoading()
   const { showToast } = useToast()
@@ -59,6 +58,7 @@ export default function Productmodel({ selectedProduct, siteinfos }) {
   const { items, total, itemCount, loading } = useSelector((state) => state.cart)
   const cart = useSelector((state) => state.cart) // Get the latest cart state
   const [productHeight, setProductHeight] = useState("70vh") // Manage the height of the product modal
+  const siteinfos = useSelector(state => state.home.siteinfos[0])
 
   // Function to get product images
   const getProductImages = (product) => {
@@ -483,7 +483,7 @@ export default function Productmodel({ selectedProduct, siteinfos }) {
                   id="productModal"
                   ref={zoomContainerRef}
                   style={{
-                    height: productHeight,
+                    // height: productHeight,
                     transition: "height 0.3s ease-in-out",
                     overflow: "hidden",
                     cursor: isZooming ? "crosshair" : "default",

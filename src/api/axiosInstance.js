@@ -4,7 +4,7 @@ import { refreshToken, resetAuth } from './authService';  // Import actions to h
 
 const axiosInstance = axios.create({
   baseURL: 'http://127.0.0.1:8000/api/v1/', // Your backend API URL https://admin.beautycraft.xyz/api/v1
-  timeout: 10000, // Timeout after 10 seconds
+  // timeout: 10000, // Timeout after 10 seconds
   headers: {
     'Content-Type': 'application/json',
   },
